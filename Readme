@@ -1,0 +1,260 @@
+fonction isset si la var = null elle retourne faux
+si la var est different de null elle retourne vrai
+ donc !isset si la var = null elle retourne vrai\
+ si la var est different de null elle retourne faux
+
+ include permet d'inclure le contenu d'un fichier
+
+//  l'interpolation 
+pour utiliser l'interpollation il faut mettre la  variable a l'interieur des {}
+exemple : $fullname="kenfack  azangue";
+echo "bonjour {$fullname}";
+// l'autre if
+if():  //entre la balise php
+
+    action 
+
+    endif; //entre la balise php
+    et les valeurs qui vont etre utiliser entre la balise php
+
+    // switch syntaxe
+    $var
+    switch($var){
+        case val:
+            echo
+            break;
+            .........
+            default:
+            echo
+
+    }
+    Quand doit-on choisir if  ?
+
+    Pour une condition simple et courte, on utilise le  if
+
+Et quand doit-on choisir switch ?
+Et quand on a une série de conditions à analyser, on préfère utiliser switch pour rendre le code plus clair.
+
+// les ternaires ou conditions condensees
+syntaxe :
+
+$var =val
+$var2=(condition sur $var) ? true: false; 
+
+//utilisation des boucles
+
+ Est-ce que je sais d'avance combien de fois je veux que mes instructions soient répétées ? ».
+ Si la réponse est oui, alors la boucle for  est tout indiquée.
+
+Sinon, alors il vaut mieux utiliser la boucle while .
+
+syntaxe for 
+for ($i=0 ; $i<= ou >= val ; $i++)
+    {
+        instructiions;
+    }
+
+    while syntaxe
+
+
+    while(condition){
+        instructions;
+    }
+
+    //talbeaux
+    la fonction array permet de transformer une variable en tableau 
+    un array numeroté commence toujours par 0
+    dans les tableaux associatif le symbole => veut dire associer a
+
+    Les tableaux numérotés permettent de stocker une série d'éléments du même type, comme des prénoms. Chaque élément du tableau contiendra alors un prénom.
+
+Les tableaux associatifs permettent de découper une donnée en plusieurs sous-éléments. Par exemple, une adresse peut être découpée en nom, prénom, nom de rue, ville…
+
+print_r est une sorte de echo specialement pour les tableaux
+
+array_key_exists pour vérifier si une clé existe dans le tableau.(pour les tableaux associatifs)
+
+in_array pour vérifier si une valeur existe dans le tableau.
+
+array_search pour récupérer la clé d'une valeur dans le tableau
+
+Si elle a trouvé la valeur, array_search renvoie la clé correspondante (dans le cas d'un tableau numéroté, la clé sera un numéro ; dans le cas d'un tableau associatif, la clé sera un nom).
+
+Si elle n'a pas trouvé la valeur, array_search renvoie false  .
+
+
+
+//boucle foreach
+syntaxe foreach
+foreach($taleau as $variabletemporaire){
+ echo   $variabletemporaire
+}
+
+ parcours tous les elements du tableaux quelques soit son type 
+ pour cela il faut juste faire un echo de la variable temporaire
+
+ exemple
+ foreach($taleau as $variabletemporaire){
+ echo   $variabletemporaire
+}
+  le foreach est utiliser uniquement pour parcourir les elements d'un tableau
+
+  les strings deviennent  des tableaux  uniquement si ils sont a l'interieur d'un tableau 
+
+  on peut parcourir avec la boucle foreach 
+
+  avec le foreach on peut recuperer la cle et la valeur
+  syntaxe 
+  foreach($taleau as $cle=> $valeur){
+ echo   $cle  et $valeur
+
+}
+
+
+ la balise <pre>  pour avoir un affichage correct.
+
+////////////////////////////////////////////////
+ // fonctions 
+
+ Comme les boucles, les fonctions permettent d'éviter d'avoir à répéter du code
+
+ on appelle une fonction par son nom 
+ exemple 
+ function jouer(parametre1,parametre2,parametre3,..... ){
+
+ }
+ jouer();
+ il y a en effet deux types de fonctions :
+
+Celles qui ne retournent aucune valeur (ça ne les empêche pas d'effectuer des actions).
+Celles qui retournent une valeur.
+
+str_replace("ancien mot","nouveau mot", la variable qui contient tout le mot)
+strlen renvoie la taille d'un mot
+pour une meilleur concatenation on utilise sprintf
+syntaxe
+sprintf(
+    '%s1 %s2 
+    $var1,
+    $var2
+);
+autant de %s autant de $var
+et l'ordre compte donc 
+$var1 represente %s1
+$var2 represente %s2
+
+la fonction date possede des format qui permettent l'affichage
+plus correct commme : pour la date ('d/m/Y'); et pour le temps
+('H \h i');
+
+creons nos propres fonctions
+syntaxe
+function nomfunction(type du paramtres:paramtres):le type de retour de la fonction (correspond au dernier return de la fonction){
+
+}
+Appel de la focntion
+nomfunction(l'element a entrer dois etre du mm type que celui ercis dans la fonction);
+
+exemple
+function isvalide(array $recettes):string{
+if(array_key_exists('is_acces',$recettes)&& in_array(1,$recettes)){
+    $isacces=$recettes['is_acces'];
+    return $isacces;
+}else{
+    return $isacces= "vous ne pouvez pas accéder a la recette";
+}
+return $isacces;
+}
+
+
+$valid=isvalide($recettes[0]);
+echo $valid;
+la fonction qui permet d'envoyer des informations de "headers" s'appelle  header() 
+nous avons aussi 
+session_start()
+setcookie()
+
+////////////////////////////////////////////////
+
+mon script php et les erreurs 
+Parse error" = si vous formulez mal une instruction
+Une "parse error" est en fait une instruction PHP mal formée. Il peut y avoir plusieurs causes :
+  Oublier le point-virgule à la fin de l'instruction.
+   Oublier de fermer un guillemet (une apostrophe ou une parenthèse).
+   Se tromper dans la concaténation et oublier un point. 
+   Mal fermer une accolade.
+
+   Undefined function causes:
+    la fonction n'existe vraiment pas
+    soit l'extention php qui doit la reconnaitre n'est pas activé
+    Wrong parameter count" = si vous entrez un nombre incorrect de paramètres pour une fonction(_k)
+    Autres erreurs
+    Headers already sent by…=si vous écrivez du code au mauvais endroit
+    Maximum execution time exceeded= si vous avez fait une boucle infinie
+    L'image contient des erreurs
+
+    ////constante magique////
+    __DIR__ est une constante magique en PHP qui renvoie le chemin absolu du répertoire du fichier courant;
+    __FILE__ RENVOIE LE CHEMIN  absolu de la page dans laquelle on se trouve;
+    ///envoyer les donnes par url///
+    Les paramètres s'enchaînent selon la forme nom=valeur et sont séparés les uns des autres par le symbole   &  .
+exemple
+page.php?param1=valeur1&param2=valeur2&param3=valeur3&param4=valeur4…
+la longueur de l'url est de 256caracteres
+en html le &  qui separe les parametres devient &amp 
+
+
+validation du formulaire
+empty renvoie vrai si une variable est = 0 ou inexistante mais faux si la variable n'est pas =0 et n'est pas vide 
+isset renvoie vrai si la variable est existante  et =0 mais faux s'il elle est inexistante
+htmlspecialchars permet d'afficher les balises html qu'un utilisateur a envoyer en remplissant un formulaire
+strip_tags poru retirer les balises html 
+Dès l'instant où votre formulaire propose aux visiteurs d'envoyer un fichier, il faut ajouter l'attribut enctype="multipart/form-data" à la balise  <form>  
+
+gerer les fichiers en php///
+nous avons la supervariable $_FILES qui est un talbeau multidimensionnelle
+qui est un talbeau contenant des tableau ayant des valeurs
+
+voici sa forme
+
+$_FILES=[
+    'nom duchamps'=>["name"=>"mooi",
+    "filename"=>"monfichrier",
+    "size"=> "400",
+    "type"=>"png",
+    "nomtempo"=>"gdgbgbfh"
+    ]
+
+];
+
+
+
+
+la fonction pathinfo retourne un talbeau associatif de 4 element qui sont :
+    dirname ,basename,extension ,filename qui sont les cles pour acceder aux valeur des proprites du fichier
+    il faut fournir en parametres le nom du fichier a travers la superglobale $_FILES['nom_du_champ']["name"]
+
+    pathinfo osrt un tableau multidimensionnelle comme ceci 
+
+    pathinfo($_FILES['nom_du_champ']["name"])= $_FILES['nom_du_champ']["name"]= ['nom duchamps'=>["name"=>"mooi",
+    "filename"=>"monfichrier",
+    "size"=> "400",
+    "type"=>"png",
+    "nomtempo"=>"gdgbgbfh"
+    ]
+        ]
+        ]
+
+    is dir qui verifie si un dossier existe a l'aide de son chemin d'acces
+    pour le chemin d'acces on le donne  grace a __DIR__ 
+
+    pour accepter le fichier on utilise la fonction move_uploaded_file qui prend deux parametres
+    $_FILES['nom_du_champ']["name"] et $_FILES['nom_du_champ']["nametempo"]
+    la fonction basename retourne le nom de base du fichier donc le nom du fichier +son extension
+    elle prend en parametre $_FILES['nom_du_champ']["name"]
+     
+    pour valider et stocker definitivement voici comment faire
+    move_uploaded_file( $_FILES['nom_du_champ']["nametempo"], $chemindacces=__DIR__./"nom du dossier"
+    . basename($_FILES['nom_du_champ']["name"]))
+
+
