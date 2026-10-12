@@ -1,3 +1,4 @@
+ 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +20,11 @@
             <li><a href="recettes.php"title="recettes">recettes</a></li>
             <li title="Nous"><a href="about.php" class="nouss">Nous</a></li>
             <li style="float: right;"> <a href="login.php"><i class="fa-solid fa-circle-user"></i></a></li>
+            <?php if(isset($_SESSION["logguser"])): ?>
+                <li> <a href="logout.php"><i class="fa-solid fa-door-closed"></i>Déconnexion</a></li>
+                <?php endif; ?>
+                <li><a href="connect.php"title="mabd">ma BD</a></li>
+
         </menu> 
 </nav> 
 

@@ -184,7 +184,7 @@ Ps : Le waterfufu se cuit avec peu d’eau. S’il y en a beaucoup, il aura la t
 'full_name' => 'Edwars Anthony',
 'email' => 'Edwars.anthony@exemple.com',
 'age' => 23,
-"password"=>"23Edwars"
+"password"=>"c"
 ],
 
  [

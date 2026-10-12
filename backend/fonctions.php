@@ -212,6 +212,12 @@ return $A="la recette n'est pas acssecible";
    }
   
 }
+
+function redirectToUrl(string $url): never
+{
+    header("Location:{$url}");
+    exit();
+}
     
 
    

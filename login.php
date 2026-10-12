@@ -1,15 +1,8 @@
 <?php 
-     require_once(__DIR__."/backend/variables.php");
-     require_once(__DIR__."/backend/fonctions.php");
-
-
- 
-
-
-
-   
+session_start();
+require_once(__DIR__."/backend/variables.php");
+require_once(__DIR__."/backend/fonctions.php"); 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +14,14 @@
 </head>
 <body>
     <div>
-  <form action="index php" method="POST">
+        <?php if(!isset($_SESSION["logguser"])): ?>
+  <form action="soumi.php" method="POST">
+     <?php if (isset( $_SESSION["login_error"])) : ?>
+            <div class="alert alert-danger" role="alert">
+                <?php echo  $_SESSION["login_error"];
+                unset( $_SESSION["login_error"]) ?>
+            </div>
+        <?php endif; ?>
         <div class="logform">
             <div class="labemail">
                 <label for="email" >Email :</label>
@@ -31,6 +31,12 @@
             <input type="password" name="password" id="password"  size="80px"><br/>
      <div class="boutton"><button type="submit" style="background-color:gainsboro; border-radius: 5px 5px 5px 5px; color:blue"> Envoyer</button>  </div>  
 </div>
+
+<?php else : ?>
+    <div class="alert alert-success" role="alert">
+        Bonjour  et bienvenue sur le site !<?php echo $_SESSION['logguser']; ?>
+    </div>
+<?php endif; ?>
 
     </form>
     </div>
